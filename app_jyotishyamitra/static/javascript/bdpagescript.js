@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Create a link element to download the file
         let link = document.createElement("a");
         link.href = url;
-        link.download = "birthdata.jsm";
+        link.download = "birthdata.json";
         link.click();
 
         // Clean up the URL object
@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 }
             };
             reader.readAsText(file);
+
         } else {
             alert('Please select a valid JSON file.');
         }
