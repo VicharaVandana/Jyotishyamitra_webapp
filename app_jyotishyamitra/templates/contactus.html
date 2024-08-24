@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/contactus_styles.css' %}">
+    <title>Contact Us Form</title>
+</head>
+<body>
+    <section id="contact">
+        <div class="sectionheader">
+            <h1>CONTACT</h1>
+        </div>
+        <article>
+            <p>This is Jyotishyamitra Web Application created by Shyam Bhat. This is in beta version only. In case you want to report some errors or want to consult for astrology consultation please feel free to use this contact form. Please fill the details in detail and send the mail.</p>
+            
+            <label for="checkcontact" class="contactbutton">
+                <div class="mail"></div>
+            </label>
+            <input id="checkcontact" type="checkbox">
+        
+            <form id="contact-form" class="contactform">
+                <p class="input_wrapper">
+                    <input type="text" name="contact_nom" id="contact_nom">
+                    <label for="contact_nom">NAME</label>
+                </p>
+                
+                <p class="input_wrapper">
+                    <input type="text" name="contact_sujet" id="contact_sujet">
+                    <label for="contact_sujet">SUBJECT</label>
+                </p>
+                <p class="textarea_wrapper">
+                    <textarea name="contact_message" id="contact_message"></textarea>
+                </p>
+                <p class="submit_wrapper">
+                    <input type="submit" value="Send Mail">
+                </p>			
+            </form>
+        </article>
+    </section>
+    <script src="{% static 'javascript/contactus.js' %}"></script>
+</body>
+</html>

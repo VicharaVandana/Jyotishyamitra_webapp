@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'css/resultpagestyles.css' %}">
+    <title>Astrological result page</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="topNavBar">
+                <div class="navBarItem" id="homeopt">Home</div>
+                <div class="navBarItem">About</div>
+                <div class="navBarItem" id="contactusopt">Contact Us</div>
+            </div>
+        </nav>
+    </header>
+    <div id="mainpage">
+        <div id="selectedimg">
+            <svg id="northIndianChart" width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!--The skeleton of the North Indian Chart-->
+                <polygon id="housenum_1" points="50,0 25,25 50,50 75,25" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_2" points="0,0 25,25 50,0" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_3" points="0,0 0,50 25,25" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_4" points="25,25 0,50 25,75 50,50" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_5" points="0,50 0,100 25,75" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_6" points="50,100 0,100 25,75" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_7" points="50,50 25,75 50,100 75,75" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_8" points="100,100 50,100 75,75" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_9" points="100,100 100,50 75,75" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_10" points="50,50 75,75 100,50 75,25" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_11" points="100,50 75,25 100,0" style="stroke:yellow;stroke-width:1%" />
+                <polygon id="housenum_12" points="75,25 100,0 50,0" style="stroke:yellow;stroke-width:1%" />
+
+                <!--The Sign numbers of the North Indian Chart-->
+                <text class="sign_number" id="tansign" x="50%" y="45%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="dhansign" x="25%" y="20%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="anujsign" x="18%" y="28%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="maatasign" x="43%" y="53%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="santaansign" x="18%" y="78%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="rogsign" x="25%" y="84%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="dhampatyasign" x="50%" y="59%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="aayusign" x="75%" y="84%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="bhagyasign" x="82%" y="78%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="karmasign" x="57%" y="53%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="laabsign" x="82%" y="28%"  text-anchor="middle" fill="pink">12</text>
+                <text class="sign_number" id="karchsign" x="75%" y="20%"  text-anchor="middle" fill="pink">12</text>
+                
+                
+                <text class="planet_symbol" id="Sun" x="47%" y="50%" text-anchor="left" text-decoration="underline" fill="lime">Su</text>
+                <text class="planet_symbol" id="Moon" x="47%" y="50%" text-anchor="left" text-decoration="underline" fill="lime">Mo</text>
+                <text class="planet_symbol" id="Mars" x="47%" y="50%" text-anchor="left" text-decoration="underline" fill="lime">Ma</text>
+                <text class="planet_symbol" id="Mercury" x="47%" y="50%" text-anchor="left" text-decoration="underline" fill="lime">Me</text>
+                <text class="planet_symbol" id="Jupiter" x="47%" y="50%" text-anchor="left" text-decoration="underline" fill="lime">Ju</text>
+                <text class="planet_symbol" id="Venus" x="47%" y="50%" text-anchor="left" text-decoration="underline" fill="lime">Ve</text>
+                <text class="planet_symbol" id="Saturn" x="47%" y="50%" text-anchor="left" text-decoration="underline" fill="lime">Sa</text>
+                <text class="planet_symbol" id="Rahu" x="47%" y="50%" text-anchor="left" text-decoration="underline" fill="lime">Ra</text>
+                <text class="planet_symbol" id="Ketu" x="47%" y="50%"  text-anchor="left" text-decoration="underline" fill="lime">Ke</text>                
+                
+              </svg>
+        </div>
+        <div class="buttonsection" id="divisionButtons">
+            <div class="divisionButton" id="showD1Chart">D1</div>
+            <div class="divisionButton" id="showD2Chart">D2</div>
+            <div class="divisionButton" id="showD3Chart">D3</div>
+            <div class="divisionButton" id="showD4Chart">D4</div>
+            <div class="divisionButton" id="showD7Chart">D7</div>
+            <div class="divisionButton" id="showD9Chart">D9</div>
+            <div class="divisionButton" id="showD10Chart">D10</div>
+            <div class="divisionButton" id="showD12Chart">D12</div>
+            <div class="divisionButton" id="showD16Chart">D16</div>
+            <div class="divisionButton" id="showD20Chart">D20</div>
+            <div class="divisionButton" id="showD24Chart">D24</div>
+            <div class="divisionButton" id="showD27Chart">D27</div>
+            <div class="divisionButton" id="showD30Chart">D30</div>
+            <div class="divisionButton" id="showD40Chart">D40</div>
+            <div class="divisionButton" id="showD45Chart">D45</div>
+            <div class="divisionButton" id="showD60Chart">D60</div>
+            <div class="selectfirsthousesign">
+                <!--label for="firsthousesign">First house sign number:</label-->
+                <select name="firsthousesign" id="firsthousesign">
+                    <option value="1">1-Aries</option>
+                    <option value="2">2-Taurus</option>
+                    <option value="3">3-Gemini</option>
+                    <option value="4">4-Cancer</option>
+                    <option value="5">5-Leo</option>
+                    <option value="6">6-Virgo</option>
+                    <option value="7">7-Libra</option>
+                    <option value="8">8-Scorpio</option>
+                    <option value="9">9-Sagittarius</option>
+                    <option value="10">10-Capricorn</option>
+                    <option value="11">11-Aquarius</option>
+                    <option value="12">12-Pisces</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //let bd = JSON.parse(document.getElementById('astrodatajson').innerText)
+        let mytext = document.getElementById('sunsign');
+        var ad = JSON.parse('{{ astrodata | safe }}');
+        var bd = JSON.parse('{{ birthdata | safe }}');
+        console.log(dataFromDjango["D1"]["planets"]["Sun"]["sign"]);
+        mytext.innerText = `Your sun Sign is astrodata["D1"]["planets"]["Sun"]["sign"] !!`;
+    </script>
+    
+    <script src="{% static 'javascript/chartupdate.js' %}"></script>
+    <script src="{% static 'javascript/resultscript.js' %}"></script>
+    
+</body>
+</html>

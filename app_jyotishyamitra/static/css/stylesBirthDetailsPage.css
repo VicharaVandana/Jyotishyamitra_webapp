@@ -1,0 +1,447 @@
+* {
+    box-sizing: border-box;
+    height: auto;
+  }
+
+body{
+    font-size: 16px;
+    background-image: url(/media/nightskyshining.gif);
+}
+
+
+/*For Mobile view*/
+
+#BirthDetailsPage{
+    width: 100vw;
+}
+
+.topNavBar{
+    display: flex;
+    flex-direction: row;
+}
+
+.navBarItem{
+    padding: 10px;
+    border: 1px, solid, pink;
+    background-image: linear-gradient(45deg, red, blue);
+    color: white;
+    width: 30%;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.navBarItem:hover{
+    transform: scale(1.2);
+    color: yellow;
+    cursor: pointer;
+    border: 2px black solid;
+    border-radius: 05%;
+}
+
+ /*Input section where all input parameters are provided*/
+ .inputsection{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 60%;
+    width: 100%;
+    background: black;
+}
+
+
+/*To be done by js when this page entered*/
+#AppTitle{
+    font-family: "Audiowide", sans-serif;
+    font-size: 500%;
+    align-self: center;
+    animation: 20s jagmag ease;
+    animation-iteration-count: infinite;
+}
+@keyframes jagmag {
+    0% {
+        color: orange;
+    }
+    10% {
+        color: white;
+    }
+    25% {
+        color: red;
+    }
+    40% {
+        color: lime;
+    }
+    60% {
+        color: yellow;
+    }
+    75% {
+        color: pink;
+    }
+    85% {
+        color: cyan;
+    }
+    100% {
+        color: orange;
+    }
+}
+
+
+#bdPageIconimageleft{
+    position: absolute;
+    width: 15%;
+    left: 0;
+    top: 0;
+}
+#bdPageIconimageright{
+    position: absolute;
+    width: 15%;
+    right: 0;
+    top: 0;
+
+}
+
+/*Title of this page*/
+#PageTitle{
+    font-family: "Sofia", sans-serif;
+    color: yellow;
+    margin-top: 7%;
+    margin-left: 5%;
+    font-size: 300%;
+}
+
+.inputform{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/*Input containers section styles*/
+.inputContainer{
+    border: none;
+    padding: 5px;
+    margin: 2rem;
+    display:flex;
+    position: relative;
+    width: 100%;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+#pob_Section{
+    width: 100%;
+    color: aliceblue;
+    border: red 2px solid;
+    padding-bottom: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+#pobTitle{
+    color: skyblue;
+    font-weight: normal;
+    font-size: 1.4rem;
+    padding-left: 5%;
+    width: 100%;
+}
+
+.tab{
+    width: 40%;
+    text-align: center;
+    font-size: 1.2rem;
+    border: 3px, yellow, solid;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 0.2%;
+    background: linear-gradient(to right, rgb(241, 241, 178), skyblue,aliceblue,white,azure, skyblue, rgb(241, 241, 178));
+    color: black;
+    font-weight: bold;
+    font-family: "Trirong", serif;
+    cursor: pointer;
+}
+
+#sec_EnterPlace{
+    display: none;
+    flex-wrap: wrap;
+}
+
+#sec_SelectPlace{
+    display: none;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Styles related to POB dropdowns */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 6rem;
+    background-color: black;
+    min-width: 160px;
+    border: 1px solid yellow;
+    color: aqua;
+    z-index: 1;
+}
+.dropdown-content div {
+    padding: 12px;
+    cursor: pointer;
+    font-size: 200%;
+}
+.dropdown-content div:hover {
+    background-color: deeppink;
+    transform: scale(1.2);    
+    font-size: 200%;
+}
+
+/*Styles related to buttons and its container*/
+#sec_buttons{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 2vh;
+    width: 100%;
+}
+
+.button {
+    padding: 5px;
+    border: 2px solid azure;
+    margin-bottom: 20px;
+    cursor: pointer;
+    min-width: 90%;
+    text-align: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 300%;
+    font-weight:bolder;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.button:active, .button:focus{
+    transform: scale(1.05);
+}
+
+/* Sidebar related styles */
+.sidebar{
+    display: none;
+}
+
+.leftitems{
+    display: flexbox;
+    width: 80%;
+    min-width: 50%;
+    background: linear-gradient(to right, yellow,deeppink);
+    align-self: center;
+    text-align: center;
+    padding: 2%;
+    margin: 5%;
+    border:blue 2px solid;
+    color: black;
+    font-size: 150%;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.leftitems:hover{
+    transform: scale(1.2);
+    border: white 3px solid;
+    background: blueviolet;
+    color: lime;
+    cursor: pointer;
+}
+
+
+/********************************************************/
+#btnSubmitData {
+    align-items: center;
+    background-color: gold;
+    color: blue;
+    
+  }
+  
+  #btnSubmitData:active,
+  #btnSubmitData:hover {
+    background-color: black;
+    color: gold;
+    border: gold 2px dotted;
+    border-radius: 10%;
+  }
+
+
+  #btnResetForm {
+    align-items: center;
+    background-color: limegreen;
+    color: red;
+    
+  }
+  
+  #btnResetForm:active,
+  #btnResetForm:hover {
+    background-color: black;
+    color: lime;
+    border: limegreen 2px dotted;
+    border-radius: 10%;
+  }
+
+  
+  #btnExportData {
+    align-items: center;
+    background-color: tomato;
+    color: black;
+    
+  }
+  
+  #btnExportData:active,
+  #btnExportData:hover {
+    background-color: black;
+    color: tomato;
+    border: tomato 2px dotted;
+    border-radius: 10%;
+  }
+
+  #btnImportBD{
+    align-items: center;
+    background-color: skyblue;
+    color: red;
+  }
+
+  #btnImportBD:active,
+  #btnImportBD:hover {
+    background-color: black;
+    color: skyblue;
+    border: skyblue 2px dotted;
+    border-radius: 10%;
+  }
+
+  /* Ads section styles*/
+.placeholder4ads{
+    width: 96%;
+    height: 40%;
+    border: 2px white dotted;
+    margin: 2%;
+
+}
+/********************************************************/
+
+
+/***************************************************************************/
+/* for Desktop website */
+@media only screen and (min-width: 1000px) {
+    /* For desktop: */
+    .navBarItem{
+        padding: 10px;
+    }
+
+    .navBarItem{
+        width: 20%;
+        text-align: center;
+        font-size: 100%;
+    }
+
+    .inputsection{
+        width: 80%;
+    }
+
+    #AppTitle{font-size: 250%;}
+
+    #bdPageIconimageleft,
+    #bdPageIconimageright{
+        width: 10%;
+    }
+
+    #PageTitle{
+        font-size: 200%;
+        align-self: center;
+        position: relative;
+        top: -5rem;       
+
+    }
+
+    .inputform{
+        position: relative;
+        top: -7rem;   
+
+    }
+
+    .inputContainer{ 
+        width: auto;
+        margin: 1rem;
+    }
+
+    #c_dateofbirth{
+        width: 30%;
+    }
+
+    #c_gender{
+        width: 20%;
+    }
+
+    #c_email{
+        width: 40%;
+    }
+
+    #c_name{
+        width: 30%;
+    }
+
+    #c_timeofbirth{
+        width: 30%;
+    }
+
+    #c_placename{
+        width: 25%;
+    }
+
+    #c_lat{
+        width: 20%;
+    }
+    #c_lon{
+        width: 20%;
+    }
+    #c_tz{
+        width: 20%;
+    }
+
+    .dropdown-content div:hover {
+        background-color: deeppink;
+        transform: scale(1.0);
+        font-size: 1.2rem;
+        color: yellow;
+
+    }
+
+    .dropdown-content{
+        font-size: 0.5rem;
+    }
+
+    .dropdown-content {
+        top: 4rem;}
+
+
+    .button {
+        min-width: 20%;
+        font-size: 100%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+    }
+
+    .button:hover{
+        transform: scale(1.2);
+        }
+
+    .sidebar{
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        }
+    
+    #BirthDetailsPage{
+        display: flex;
+
+    }
+
+    #sec_buttons{
+        top: -15vh;
+    }
+/*End of desktop section */
+}

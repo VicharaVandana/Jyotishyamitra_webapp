@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gives the Astrological chart and details as per Vedic Astrology.">
+    <!--Stylesheets for Google fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <!--Stylesheets for Our HTML styling-->
+    <link rel="stylesheet" href="{% static 'css/stylesFirstPage.css' %}">
+    <title>Jyotishyamitra WebApp</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="topNavBar">
+                <div class="navBarItem" id="homeopt">Home</div>
+                <div class="navBarItem">About</div>
+                <div class="navBarItem" id="contactusopt">Contact Us</div>
+            </div>
+        </nav>
+    </header>
+    <div class="page" id="EntryPage">
+        <div class="fullpage">
+            <div class="leftbar" style="background-image: url('{% static 'images/nightskyshining.gif' %}')">
+                <div class="leftitems">Astrology Consultation</div>
+                <div class="leftitems">Remedies</div>
+                <div class="leftitems">Contribute</div>
+                <div class="leftitems">Download Android App</div>
+                <div class="placeholder4ads"></div>
+            </div>
+            <div class="main">
+                <img src="{% static 'images/astroimg.png' %}" id="baseimg" alt="Astro Image">
+                <h1 id="AppTitle"> Jyoti<strong>shyam</strong>itra   App </h1>
+                <div class="buttonsection">
+                    <button class="button" id="btnInputBD">Input Birthdata</button>
+                    <!--button class="button" id="btnLearnAstro">Learn Astrology</button-->
+                    <a href="https://www.youtube.com/watch?v=3cTlGoXYlV4&list=PL7RbKI2JHDnJ74nRUFRknu8XeWxhlN2XG" target="_blank" class="button" id="btnLearnAstro">Learn Astrology</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Link to JavaScript file -->
+    <script src="{% static 'javascript/homepageoperations.js' %}"></script>
+</body>
+</html>
