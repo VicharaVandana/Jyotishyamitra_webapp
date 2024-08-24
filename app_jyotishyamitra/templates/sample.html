@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    canvas { border: 1px solid black; }
+  </style>
+</head>
+<body>
+  <canvas id="chart" width="500" height="500"></canvas>
+  <script>
+    const canvas = document.getElementById('chart');
+    const ctx = canvas.getContext('2d');
+    const boxSize = 166;
+    const animationDuration = 1000; // 1 second
+    const startTime = Date.now();
+
+    function drawChart() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw grid (3x4 layout)
+      for (let x = 0; x < 3; x++) {
+        for (let y = 0; y < 4; y++) {
+          ctx.strokeRect(x * boxSize, y * boxSize, boxSize, boxSize);
+        }
+      }
+    }
+
+    function animatePlanet() {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / animationDuration, 1);
+
+      const house = 1; // Example house
+      const row = Math.floor((house - 1) / 3);
+      const col = (house - 1) % 3;
+      const posX = col * boxSize + boxSize / 2;
+      const posY = row * boxSize + boxSize / 2;
+      const offset = 20 * Math.sin(progress * Math.PI);
+
+      ctx.font = '20px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('☉', posX, posY - offset);
+
+      if (progress < 1) {
+        requestAnimationFrame(animatePlanet);
+      }
+    }
+
+    drawChart();
+    animatePlanet();
+  </script>
+</body>
+</html>

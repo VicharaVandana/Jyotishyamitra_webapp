@@ -1,0 +1,271 @@
+
+h1{
+    text-align:center; font-size:25px; text-transform:uppercase; color:#222; letter-spacing:1px;
+  font-family:"Playfair Display", serif; font-weight:400;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+.topNavBar{
+    display: flex;
+    flex-direction: row;
+}
+
+.navBarItem{
+    padding: 10px;
+    border: 1px, solid, pink;
+    background-image: linear-gradient(45deg, red, blue);
+    color: white;
+    width: 30%;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.navBarItem:hover{
+    transform: scale(1.2);
+    color: yellow;
+    cursor: pointer;
+    border: 2px black solid;
+    border-radius: 05%;
+}
+
+#EntryPage {
+    display: flex;
+    min-width: 250px;
+    width: 100%;
+    flex-direction: column;
+    background-color: aqua;
+    /*background-image: radial-gradient(red, yellow, lime)*/
+    
+}
+
+.fullpage {
+    display: flex;
+}
+
+.leftbar{
+    display: none;
+}
+
+.leftitems{
+    display: flexbox;
+    width: 80%;
+    min-width: 50%;
+    background: linear-gradient(to right, yellow,deeppink);
+    align-self: center;
+    text-align: center;
+    padding: 2%;
+    margin: 5%;
+    border:blue 2px solid;
+    color: black;
+    font-size: 150%;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.leftitems:hover{
+    transform: scale(1.2);
+    border: white 3px solid;
+    background: blueviolet;
+    color: lime;
+    cursor: pointer;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, orange, white,rgb(235, 50, 50), lime, yellow, pink,blue 90%);
+}
+
+#baseimg{
+    min-width: 90%;    
+    align-content: center;
+    align-self: center;
+    margin-top: 10px;
+    
+}
+
+
+
+
+#AppTitle{
+    font-family: "Audiowide", sans-serif;
+    font-size: 500%;
+    color: black;
+}
+
+
+
+/*Button related styles*/
+.buttonsection{
+    display: flex; 
+    width: 100%; 
+    flex-wrap: wrap;  
+}
+
+.button {
+    padding: 5px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    cursor: pointer;
+    min-width: 90%;
+    text-align: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 300%;
+    font-weight:bolder;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.button:active, .button:focus{
+    transform: scale(1.05);
+}
+
+
+/*input birthdata button*/
+#btnInputBD {
+    align-items: center;
+    background-color: gold;
+    color: black;
+    
+  }
+  
+  #btnInputBD:active,
+  #btnInputBD:hover {
+    background-color: black;
+    color: gold;
+    border: gold 2px dotted;
+    border-radius: 10%;
+  }
+
+  /*import birthdata button*/
+#btnImportBD {
+    align-items: center;
+    background-color: lime;
+    color: black;
+    
+  }
+  
+  #btnImportBD:active,
+  #btnImportBD:hover {
+    background-color: black;
+    color: lime;
+    border: lime 2px dotted;
+    border-radius: 10%;
+  }
+
+  /*Learn Astrology button*/
+#btnLearnAstro {
+    align-items: center;
+    background-color: tomato;
+    color: black;
+    
+  }
+  
+  #btnLearnAstro:active,
+  #btnLearnAstro:hover {
+    background-color: black;
+    color: tomato;
+    border: tomato 2px dotted;
+    border-radius: 10%;
+  }
+  
+/* Ads section styles*/
+.placeholder4ads{
+    width: 96%;
+    height: 40%;
+    border: 2px white dotted;
+    margin: 2%;
+
+}
+
+
+/* for Desktop website */
+@media only screen and (min-width: 1000px) {
+    /* For desktop: */
+    .button {
+        min-width: 30%;
+        font-size: 100%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .button:hover{
+        transform: scale(1.2);
+    }
+
+    .navBarItem{
+        padding: 10px;
+    }
+
+    .navBarItem{
+        width: 20%;
+        text-align: center;
+        font-size: 100%;
+    }
+
+    .leftbar{
+        display: flex;
+        min-width: 10%;
+        width: 15%;
+        flex-direction: column;
+        
+    }
+
+    
+    
+    .main{
+        display: flex;
+        min-width: 50%;
+        width: 85%;
+
+    }
+    #AppTitle{font-size: 250%;}
+
+    #AppTitle:hover{
+        animation: 5s planetcolours;
+        animation-iteration-count: infinite;
+    }
+        
+    @keyframes planetcolours {
+        0% {
+            color: orange;
+        }
+        25% {
+            color: white;
+        }
+        40% {
+            color: red;
+        }
+        55% {
+            color: lime;
+        }
+        70% {
+            color: yellow;
+        }
+        85% {
+            color: deeppink;
+        }
+        100% {
+            color: black;
+        }
+    }
+
+    #baseimg{
+        min-width: 15%;
+        width: 32%;
+        margin-top: 0%;
+        padding-top: 10px;
+        transition: transform 12s linear;
+    }
+
+    #baseimg:hover,
+    #baseimg:active{
+        transform: rotate(360deg);        
+    }
+
+    
+
+  }

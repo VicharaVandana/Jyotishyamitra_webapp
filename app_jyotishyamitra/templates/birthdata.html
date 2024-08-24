@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height,  initial-scale=1.0, user-scalable=no;user-scalable=0;"/>
+    <meta name="description" content="Gives the Astrological chart and details as per Vedic Astrology.">
+    <!--Stylesheets for Google fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <!--Stylesheets for Our HTML styling-->
+    <link rel="stylesheet" href="{% static 'css/stylesBirthDetailsPage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/inputstyles.css' %}">
+
+    <!--Scripts-->
+    <script>
+        let data = [];
+        // Fetch the JSON data and store it in a variable
+        async function fetchData() {
+            try {
+                const response = await fetch("{% static 'data/places.json' %}");
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                data = await response.json();
+                populateDropdown('country', data.map(country => country.name));
+            } catch (error) {
+                console.error('Error fetching the data:', error);
+            }
+        }
+    </script>
+    <script src="{% static 'javascript/placeselect.js' %}"></script>
+    <script src="{% static 'javascript/bdpagescript.js' %}"></script>
+    <title>Jyotishyamitra WebApp</title>
+</head>
+<body style="background-image: url('{% static 'images/nightskyshining.gif' %}')">
+    <header>
+        <nav>
+            <div class="topNavBar">
+                <div class="navBarItem" id="homeopt">Home</div>
+                <div class="navBarItem">About</div>
+                <div class="navBarItem" id="contactusopt">Contact Us</div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="page" id="BirthDetailsPage">
+        <div class="inputsection">
+            <img src="{% static 'images/omkara.jpg' %}" id = "bdPageIconimageleft" alt="Astrology Image">
+            <h1 id="AppTitle"> Jyoti<strong>shyam</strong>itra</h1>
+            <img src="{% static 'images/omkara.jpg' %}" id = "bdPageIconimageright" alt="Astrology Image">
+            <h2 id="PageTitle"> Provide your birth details below </h2>
+
+            <form action="result/" method="post">{% csrf_token %}
+            <div class="inputform">                
+                <!-- Name-->
+                <div class="inputContainer" id="c_name">
+                    <div class="form__group field">
+                        <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+                        <label for="name" class="form__label">Name</label>
+                      </div>
+                </div>
+
+                <!-- Email ID-->
+                <div class="inputContainer" id="c_email">
+                    <div class="form__group field">
+                        <input type="email" class="form__field" placeholder="Email ID" name="email" id='email' required />
+                        <label for="email" class="form__label">Email ID</label>
+                    </div>
+                </div>
+
+                <!-- Gender-->
+                <div class="inputContainer" id="c_gender">
+                    <div class="form__group field">
+                        <input list="genders" name="gender" class="form__field" placeholder="Gender" id='gender' required />
+                        <datalist id="genders">
+                            <option value="male">
+                            <option value="female">
+                            <option value="other">
+                        </datalist>
+                        <label for="gender" class="form__label">Gender</label>
+                    </div>
+                </div>
+
+                <!-- Date of birth-->
+                <div class="inputContainer" id="c_dateofbirth">
+                    <div class="form__group field">
+                        <input type="date" class="form__field" placeholder="Date of Birth" name="dob" id='dob' required />
+                        <label for="dob" class="form__label">Date of Birth</label>
+                    </div>
+                </div>
+
+               <!-- Time of birth-->
+               <div class="inputContainer" id="c_timeofbirth">
+                <div class="form__group field">
+                    <input type="time" class="form__field" placeholder="Time of Birth" name="tob" id='tob' required />
+                    <label for="tob" class="form__label">Time of Birth</label>
+                </div>
+            </div>
+
+            <!-- Place of birth-->
+            <div id="pob_Section">
+                <div id="pobTitle">Place of Birth</div>
+                <div class="tab" id="tabEnterPlace">Enter Details</div>
+                <div class="tab" id="tabSelectPlace">Select Place</div>
+                    <div id="sec_EnterPlace">
+                        <!-- Place Name-->
+                        <div class="inputContainer" id="c_placename">
+                            <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="Place Name" name="PlaceName" id='PlaceName' required />
+                                <label for="name" class="form__label">Place</label>
+                            </div>
+                        </div>
+                        <!-- Lattitude-->
+                        <div class="inputContainer" id="c_lat">
+                            <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="Place Lat" name="lat" id='lat' required />
+                                <label for="lat" class="form__label">Lattitude</label>
+                            </div>
+                        </div>
+                        <!-- Longitude-->
+                        <div class="inputContainer" id="c_lon">
+                            <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="Place Long" name="lon" id='lon' required />
+                                <label for="lon" class="form__label">Longitude</label>
+                            </div>
+                        </div>
+                        <!-- Timezone-->
+                        <div class="inputContainer" id="c_tz">
+                            <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="Place Tz" name="tz" id='tz' required />
+                                <label for="tz" class="form__label">Timezone</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="sec_SelectPlace">
+                        <!-- Country Name-->
+                        <div class="inputContainer" id="c_countryname">
+                            <div class="form__group field">
+                                <input type="input" class="form__field" id="country" name="country" placeholder="Select Country" oninput="filterDropdown('country')" autocomplete="off"  />
+                                <label for="country" class="form__label">Country</label>
+                                <div id="country-dropdown" class="dropdown-content"></div>
+                            </div>
+                        </div>
+                        <!-- State Name-->
+                        <div class="inputContainer" id="c_statename">
+                            <div class="form__group field">
+                                <input type="input" class="form__field" id="state" name="state" placeholder="Select State" oninput="filterDropdown('state')" autocomplete="off"  />
+                                <label for="state" class="form__label">State</label>
+                                <div id="state-dropdown" class="dropdown-content"></div>
+                            </div>
+                        </div>
+                        <!-- City Name-->
+                        <div class="inputContainer" id="c_cityname">
+                            <div class="form__group field">
+                                <input type="input" class="form__field" id="city" name="city" placeholder="Select City" oninput="filterDropdown('city')" autocomplete="off"  />
+                                <label for="city" class="form__label">City</label>
+                                <div id="city-dropdown" class="dropdown-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+            <div id="sec_buttons">
+                <button type="submit" class="button" id="btnSubmitData">Submit Data</button>
+                <div class="button" id="btnResetForm">Reset Form</div>
+                <div class="button" id="btnExportData">Export Data</div>
+                <div class="button" id="btnImportBD">Import Data</div>
+            </div>
+            </form>
+
+        </div>
+        <div class="sidebar">
+            <div class="leftitems">Astrology Consultation</div>
+            <div class="leftitems">Remedies</div>
+            <div class="leftitems">Contribute</div>
+            <div class="leftitems">Download Android App</div>
+            <div class="placeholder4ads"></div>
+        </div>
+    </div>
+
+</body>
+</html>
